@@ -83,7 +83,6 @@
     top: 0; left: 0;
     width: 100vw; height: 100vh;
     z-index: -1;
-    pointer-events: none;
   }
 
   .hero-video {
@@ -649,10 +648,11 @@
   <!-- tsParticles -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
   <script>
+    const isMobile = window.innerWidth <= 768;
     tsParticles.load('particles-js', {
       fullScreen: false,
       particles: {
-        number: { value: 60, density: { enable: true, area: 900 } },
+        number: { value: isMobile ? 30 : 60, density: { enable: true, area: isMobile ? 600 : 900 } },
         color: { value: ['#FF6B35', '#ffffff', '#e85d2c'] },
         shape: { type: 'circle' },
         opacity: {
@@ -660,19 +660,19 @@
           animation: { enable: true, speed: 0.8, minimumValue: 0.1, sync: false }
         },
         size: {
-          value: { min: 1, max: 3 },
+          value: { min: 1, max: isMobile ? 2.5 : 3 },
           animation: { enable: true, speed: 2, minimumValue: 0.5, sync: false }
         },
         links: {
           enable: true,
-          distance: 130,
+          distance: isMobile ? 100 : 130,
           color: '#FF6B35',
           opacity: 0.15,
           width: 1
         },
         move: {
           enable: true,
-          speed: 1.2,
+          speed: isMobile ? 0.8 : 1.2,
           direction: 'none',
           random: true,
           straight: false,
@@ -682,13 +682,13 @@
       interactivity: {
         detectsOn: 'window',
         events: {
-          onHover: { enable: true, mode: 'grab' },
+          onHover: { enable: !isMobile, mode: 'grab' },
           onClick: { enable: true, mode: 'push' },
           resize: true
         },
         modes: {
           grab: { distance: 180, links: { opacity: 0.4, color: '#FF6B35' } },
-          push: { quantity: 3 }
+          push: { quantity: isMobile ? 2 : 3 }
         }
       },
       detectRetina: true
