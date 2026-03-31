@@ -77,6 +77,15 @@
     overflow: hidden;
   }
 
+  /* ───── Particles ───── */
+  #particles-js {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+  }
+
   .hero-video {
     position: fixed;
     top: 0; left: 0;
@@ -485,6 +494,9 @@
     </nav>
   </header>
 
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
   <!-- Video Background -->
   <video class="hero-video" autoplay muted loop playsinline>
     <source src="bg-video.mp4" type="video/mp4">
@@ -633,6 +645,54 @@
         carStage.style.animation = 'carRotate 8s ease-in-out infinite';
       });
     }
+  </script>
+  <!-- tsParticles -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
+  <script>
+    tsParticles.load('particles-js', {
+      fullScreen: false,
+      particles: {
+        number: { value: 60, density: { enable: true, area: 900 } },
+        color: { value: ['#FF6B35', '#ffffff', '#e85d2c'] },
+        shape: { type: 'circle' },
+        opacity: {
+          value: { min: 0.1, max: 0.5 },
+          animation: { enable: true, speed: 0.8, minimumValue: 0.1, sync: false }
+        },
+        size: {
+          value: { min: 1, max: 3 },
+          animation: { enable: true, speed: 2, minimumValue: 0.5, sync: false }
+        },
+        links: {
+          enable: true,
+          distance: 130,
+          color: '#FF6B35',
+          opacity: 0.15,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1.2,
+          direction: 'none',
+          random: true,
+          straight: false,
+          outModes: 'out'
+        }
+      },
+      interactivity: {
+        detectsOn: 'window',
+        events: {
+          onHover: { enable: true, mode: 'grab' },
+          onClick: { enable: true, mode: 'push' },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 180, links: { opacity: 0.4, color: '#FF6B35' } },
+          push: { quantity: 3 }
+        }
+      },
+      detectRetina: true
+    });
   </script>
 </body>
 </html>
