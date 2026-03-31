@@ -92,14 +92,14 @@
     width: 100vw; height: 100vh;
     object-fit: cover;
     z-index: -2;
-    opacity: 0.3;
+    opacity: 0.5;
   }
 
   .hero-overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-    background: linear-gradient(180deg, rgba(10,10,26,0.5) 0%, rgba(10,10,26,0.75) 100%);
+    background: rgba(10,10,26,0.4);
     z-index: -1;
   }
 
@@ -493,12 +493,14 @@
     </nav>
   </header>
 
+  <!-- Video Background -->
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="bg-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+
   <!-- Hero -->
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="bg-video.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
